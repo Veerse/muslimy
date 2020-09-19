@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import PodcastReducer from '../features/podcasts/PodcastsSlice'
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    podcasts: PodcastReducer,
   },
 });
+

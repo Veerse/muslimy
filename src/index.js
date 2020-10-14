@@ -5,6 +5,9 @@ import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import {fetchPodcasts} from "./features/podcasts/PodcastsSlice";
+
+store.dispatch(fetchPodcasts())
 
 ReactDOM.render(
   <React.StrictMode>

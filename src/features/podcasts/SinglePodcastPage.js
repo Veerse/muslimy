@@ -6,17 +6,28 @@ import {Button} from "grommet";
 export const SinglePodcastPage = ({match}) => {
     const { podcastId } = match.params
 
-    const podcast = useSelector((state) => selectPodcastById(state, podcastId))
+    const podcast = useSelector((state) => selectPodcastById (state, podcastId))
+    const podcastStatus = useSelector(state => state.podcasts.status)
+    const podcastsError = useSelector(state => state.podcasts.error)
 
-    if (!podcast) {
+    if (podcastStatus === 'failed') {
+        return  (
+            <section>
+                Erreur {podcastsError}
+            </section>
+        )
+    }
+
+    if (podcastStatus === 'loading' || podcastStatus === 'idle') {
         return (
             <section>
-                Podcast non trouvé
+                Loading
             </section>
         )
     }
 
     return (
+
         <section>
             <Button label="Flux RSS" />
             {podcast.title}

@@ -2,12 +2,19 @@ import React from 'react'
 
 import {Menu, Box, Header, Anchor, ResponsiveContext} from 'grommet';
 import { Menu as MenuIcon } from 'grommet-icons';
+import {withRouter} from "react-router-dom";
 
-export const MyNavbar = (props) => {
+const RouterAnchorBase = (props) => {
+    return <Anchor {...props} onClick={() => props.history.push(props.path)} />;
+};
+export const RouterAnchor = withRouter(RouterAnchorBase);
+
+export const MyNavbar = () => {
     return (
         <Header background="" pad="medium" height="xsmall" border="bottom">
             <Box direction="row" align="center" gap="small">
-                <Anchor size="large" href="/" label="Muslimy" />
+                <RouterAnchor label="Muslimy" path="/"  size="large" />
+
             </Box>
             <ResponsiveContext.Consumer>
                 {size =>
@@ -22,7 +29,6 @@ export const MyNavbar = (props) => {
                                         label: <Box pad="small">Nos podcasts</Box>,
                                         href: '/podcasts',
                                     },
-                                
                                     {
                                         label: <Box pad="small">Comment ça marche ?</Box>,
                                         href: '#',
@@ -32,8 +38,8 @@ export const MyNavbar = (props) => {
                         </Box>
                     ) : (
                         <Box justify="end" direction="row" gap="medium">
-                            <Anchor href="/podcasts" label="Nos podcasts" />
-                            <Anchor href="#" label="Comment ça marche ?"  />
+                            <RouterAnchor label="Nos podcasts" path="/podcasts" />
+                            <RouterAnchor label="Comment ça marche ?" path="#" />
                         </Box>
                     )
                 }

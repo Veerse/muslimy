@@ -33,9 +33,9 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
 }
 
 client.get = function (endpoint, customConfig = {}) {
-    return client((process.env.NODE_ENV == 'production' ? CONFIG.uri_prod:CONFIG.uri_dev ) + endpoint, { ...customConfig, method: 'GET' })
+    return client((process.env.NODE_ENV === 'production' ? CONFIG.uri_prod:CONFIG.uri_dev) + endpoint, { ...customConfig, method: 'GET' })
 }
 
 client.post = function (endpoint, body, customConfig = {}) {
-    return client((process.env.NODE_ENV == 'production' ? CONFIG.uri_prod:CONFIG.uri_dev ) + endpoint, { ...customConfig, body })
+    return client((process.env.NODE_ENV === 'production' ? CONFIG.uri_prod:CONFIG.uri_dev) + endpoint, { ...customConfig, body, method: 'POST' })
 }

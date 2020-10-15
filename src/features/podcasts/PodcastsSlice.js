@@ -14,9 +14,7 @@ const initialState = {
 }
 
 export const fetchPodcasts = createAsyncThunk('/podcasts/fetchPodcasts', async () => {
-    console.log('build')
     const response = await client.get('/podcasts')
-    console.log(response)
     return response
 })
 

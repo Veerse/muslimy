@@ -15,6 +15,7 @@ import { PodcastList } from "./features/podcasts/PodcastList";
 import { MyFooter } from "./app/Footer";
 import { AppTheme } from './app/theme';
 import {SinglePodcastPage} from "./features/podcasts/SinglePodcastPage";
+import { HowItWorks } from './app/HowItWorks';
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
                                 <Route
                                     exact path="/"
                                     component={Home}
+                                />
+                                <Route 
+                                    exact path="/howitworks"
+                                    component={HowItWorks}
                                 />
                                 <Route
                                     exact path="/podcasts"

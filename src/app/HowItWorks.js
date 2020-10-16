@@ -9,7 +9,7 @@ import {
     MaskedInput,
     TextInput,
 } from 'grommet';
-import { login } from '../features/user/UserSlice';
+import { login } from '../features/login/LoginSlice';
 
 const defaultValue = {
     email: '',

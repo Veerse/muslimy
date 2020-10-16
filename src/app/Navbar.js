@@ -4,7 +4,7 @@ import { Menu, Box, Header, Anchor, ResponsiveContext } from 'grommet';
 import { Menu as MenuIcon } from 'grommet-icons';
 import { useHistory, withRouter } from "react-router-dom";
 import { Avatar } from 'grommet';
-import { selectUser } from '../features/user/UserSlice';
+import { selectUser } from '../features/login/LoginSlice';
 
 const RouterAnchorBase = (props) => {
     return <Anchor {...props} onClick={() => props.history.push(props.path)} />;

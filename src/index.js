@@ -9,6 +9,16 @@ import {fetchPodcasts} from "./features/podcasts/PodcastsSlice";
 
 store.dispatch(fetchPodcasts())
 
+var jwt_expire = localStorage.getItem('jwt_expire')
+var jwt = localStorage.getItem('jwt')
+
+if (Date.parse(jwt_expire) > Date.parse(new Date())) {
+  console.log('JWT not expired (will expire ' + jwt_expire + '). Fetch user here')
+  console.log('Dispatching a login action with jwt ' + jwt)
+} else {
+  localStorage.clear()
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
